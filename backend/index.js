@@ -5,7 +5,11 @@ require('dotenv').config();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://stayfinder-git-main-manas-projects-5c539d17.vercel.app', // No trailing slash!
+  credentials: true
+}));
+
 app.use(express.json());
 
 const authRoutes = require('./routes/auth');
