@@ -10,7 +10,7 @@ function Listings() {
   useEffect(() => {
     const fetchListings = async () => {
       try {
-        const res = await API.get('/listings');
+        const res = await API.get('/api/listings');
         console.log('Fetched listings:', res.data); 
         setListings(res.data);
       } catch (err) {

@@ -15,7 +15,7 @@ function Register() {
     e.preventDefault();
     setError('');
     try {
-      const res = await API.post('/auth/register', formData);
+      const res = await API.post('/api/auth/register', formData);
       localStorage.setItem('token', res.data.token);
       navigate('/');
     } catch (err) {

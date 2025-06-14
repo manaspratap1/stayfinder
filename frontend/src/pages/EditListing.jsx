@@ -18,7 +18,7 @@ function EditListing() {
   useEffect(() => {
     const fetchListing = async () => {
       try {
-        const res = await API.get(`/listings/${id}`);
+        const res = await API.get(`/api/listings/${id}`);
         const { title, description, location, price, image } = res.data;
         setFormData({ title, description, location, price, image: null });
         setPreviewImage(image);
@@ -51,7 +51,7 @@ function EditListing() {
         data.append('image', formData.image);
       }
 
-      await API.put(`/listings/${id}`, data);
+      await API.put(`/api/listings/${id}`, data);
       navigate('/host/dashboard');
     } catch (err) {
       setError(err.response?.data?.message || 'Update failed');

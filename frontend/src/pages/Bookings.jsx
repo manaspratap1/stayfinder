@@ -9,7 +9,7 @@ function Bookings() {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const res = await API.get('/bookings/my');
+        const res = await API.get('/api/bookings/my');
         setBookings(res.data);
       } catch (err) {
         setError(err.response?.data?.message || 'Failed to load bookings.');
@@ -24,7 +24,7 @@ function Bookings() {
   const handleDelete = async (id) => {
     if (!window.confirm('Cancel this booking?')) return;
     try {
-      await API.delete(`/bookings/${id}`);
+      await API.delete(`/api/bookings/${id}`);
       setBookings(bookings.filter((b) => b._id !== id));
     } catch (err) {
       alert(err.response?.data?.message || 'Delete failed');

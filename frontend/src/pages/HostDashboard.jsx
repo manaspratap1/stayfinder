@@ -11,7 +11,7 @@ function HostDashboard() {
   useEffect(() => {
     const fetchHostListings = async () => {
       try {
-        const res = await API.get('/listings/host');
+        const res = await API.get('/api/listings/host');
         setListings(res.data);
       } catch (err) {
         setError('Failed to fetch listings');
@@ -26,7 +26,7 @@ function HostDashboard() {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this listing?')) return;
     try {
-      await API.delete(`/listings/${id}`);
+      await API.delete(`/api/listings/${id}`);
       setListings(listings.filter((listing) => listing._id !== id));
     } catch (err) {
       alert(err.response?.data?.message || 'Delete failed');

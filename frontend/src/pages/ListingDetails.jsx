@@ -16,7 +16,7 @@ function ListingDetails() {
   useEffect(() => {
     const fetchListing = async () => {
       try {
-        const res = await API.get(`/listings/${id}`);
+        const res = await API.get(`/api/listings/${id}`);
         setListing(res.data);
       } catch (err) {
         setError(err.response?.data?.message || 'Failed to load listing.');
@@ -37,7 +37,7 @@ function ListingDetails() {
     }
 
     try {
-      await API.post('/bookings', {
+      await API.post('/api/bookings', {
         listingId: id,
         checkIn,
         checkOut,

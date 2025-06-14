@@ -15,7 +15,7 @@ function Login() {
     e.preventDefault();
     setError('');
     try {
-      const res = await API.post('/auth/login', formData);
+      const res = await API.post('/api/auth/login', formData);
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('user', JSON.stringify(res.data.user));
       navigate('/');

@@ -6,7 +6,7 @@ const listingSchema = new mongoose.Schema(
     description: String,
     location: String,
     price: Number,
-    image: String,
+    image: String,  
     host: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',

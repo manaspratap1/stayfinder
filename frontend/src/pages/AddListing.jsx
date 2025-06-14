@@ -36,7 +36,7 @@ function AddListing() {
     if (imageFile) data.append('image', imageFile);
 
     try {
-      const res = await API.post('/listings', data, {
+      const res = await API.post('/api/listings', data, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
