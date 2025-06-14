@@ -5,8 +5,20 @@ require('dotenv').config();
 
 const app = express();
 
+const allowedOrigins = [
+  'https://stayfinder-three.vercel.app',
+  'https://stayfinder-git-main-manas-projects-5c539d17.vercel.app',
+  'http://localhost:5173'
+];
+
 app.use(cors({
-  origin: 'https://stayfinder-git-main-manas-projects-5c539d17.vercel.app', // No trailing slash!
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
 
