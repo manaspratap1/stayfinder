@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'https://stayfinder.onrender.com' });
+const API = axios.create({ baseURL: 'https://stayfinder-q0i8.onrender.com' });
 
 API.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
