@@ -35,11 +35,11 @@ function HostDashboard() {
 
   return (
     <section className="max-w-4xl mx-auto px-4 py-8">
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold text-gray-800">Your Listings</h2>
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+        <h2 className="text-xl sm:text-2xl font-bold text-gray-800">Your Listings</h2>
         <Link
           to="/host/add"
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition text-sm sm:text-base"
         >
           + Add New
         </Link>
@@ -54,14 +54,16 @@ function HostDashboard() {
           {listings.map((listing) => (
             <div
               key={listing._id}
-              className="p-4 border rounded-lg shadow-sm flex justify-between items-center"
+              className="p-4 border rounded-lg shadow-sm flex flex-col sm:flex-row justify-between gap-4 sm:items-center"
             >
               <div>
-                <h3 className="text-lg font-semibold">{listing.title}</h3>
+                <h3 className="text-base sm:text-lg font-semibold">{listing.title}</h3>
                 <p className="text-sm text-gray-500">{listing.location}</p>
-                <p className="text-blue-600 font-semibold">₹{listing.price}</p>
+                <p className="text-blue-600 font-semibold text-sm sm:text-base">
+                  ₹{listing.price}
+                </p>
               </div>
-              <div className="flex gap-2">
+              <div className="flex gap-2 self-end sm:self-auto">
                 <Link
                   to={`/host/edit/${listing._id}`}
                   className="text-sm bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 transition"
